@@ -1,4 +1,4 @@
-This proyect contains the example how much important is uses worker_threads on backend app to improve the performance isolate the complex and heave process in other threads diferents to the main thread for let the main thread free for the main process api.
+This proyect contains the example how much important is uses worker_threads on backend app to improve the performance isolate the complex and heavy process in other threads diferents to the main thread for let the main thread free for the main process api.
 
 
 commands: 
