@@ -41,11 +41,11 @@ async function bootstrap() {
   );
    await configSwagger(app)
 
-  await app.listen(3000, () => {
-    logger.log('APP', `testApp is running on http://localhost:${3000}`);
+  await app.listen(3003, () => {
+    logger.log('APP', `testApp is running on http://localhost:${3003}`);
     logger.debug(
       'APP',
-      `Swagger is running on http://localhost:${3000}/api/v1/testApp/docs`,
+      `Swagger is running on http://localhost:${3003}/api/v1/testApp/docs`,
     );
   });
 }

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  annotations: 
+    kubernetes.io/change-cause: "creation"
+  name: deployment
+  labels:
+    app: podset
+spec:
+  revisionHistoryLimit: 7
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: podset
+  template:
+    metadata:
+      labels:
+        app: podset
+    spec:
+      containers:
+      - name: workerconta
+        image: workerthapp
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+      ### if you wanth add more containers add bellow this
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+    labels:
+      app: podset
+spec:
+  type: ClusterIp
+  selector:
+    app: podset
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

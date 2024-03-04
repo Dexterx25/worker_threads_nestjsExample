@@ -4,6 +4,7 @@ import { Worker } from 'worker_threads';
 import * as os from 'os';
 import * as lodash from 'lodash'
 import workerThreadFilePath from "src/config";
+import { method_exc } from "./DTO";
 @Injectable()
 export class BiologicOrganismService {
     constructor(
@@ -36,7 +37,9 @@ export class BiologicOrganismService {
       const promises: Promise<unknown>[] = [];
       for (let i = 1; i <= count_process; i++) {
           promises.push(new Promise((resolve, _reject) => {
-            resolve(this.fibonnaciHandler.FibonacciNotRecursive(count_bioOrganism))
+            if(_method === method_exc['FASTER']) resolve(this.fibonnaciHandler.FibonacciNotRecursive(count_bioOrganism))
+            else if (_method === method_exc['HEAVY']) resolve(this.fibonnaciHandler.FibonacciRecirsive(count_bioOrganism))
+            else resolve(this.fibonnaciHandler.FibonacciNotRecursive(count_bioOrganism))
           }))
       }
       return await Promise.all(promises)
