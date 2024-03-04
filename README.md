@@ -71,5 +71,5 @@ docker build -t workerthapp .
 kubectl apply -f serviceNorPort.yaml
 
 
-now you can forward the ports or 
+now you can forward the ports or use a cloud solution with AWS to deploy to the world
 
